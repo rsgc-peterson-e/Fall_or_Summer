@@ -8,8 +8,8 @@ void setup() {
   size(800, 500);
 
   // Load the picture into the scene object 
-  //scene = loadImage("fall_forest.jpg");
-  scene = loadImage("summer_field.jpg");
+  scene = loadImage("fall_forest.jpg");
+  //scene = loadImage("summer_field.jpg");
   
   // Change colour mode to HSB
   colorMode(HSB, 360, 100, 100, 100);
@@ -38,12 +38,19 @@ void draw() {
   float currentSat = saturation(pixels[pixelPosition]);
   float currentBright = brightness(pixels[pixelPosition]);
   
+  // detect the season
+  String season;
+  if (currentBright > 40 && currentHue > 80) {
+    season = "Summer";
+  } else {
+    season = "fall";
+  }
+  
   // Report the results
   fill(0);
   text("Hue of current pixel is: " + currentHue, width - 250, 25);
   // add saturation and brightness
   text("Saturation of current pixel is: " + currentSat, width - 250, 50);
   text("Brightness of current pixel is: " + currentBright, width - 250, 75);
-  
-  
+  text("Season: " + season, width - 250, 100);
 }
