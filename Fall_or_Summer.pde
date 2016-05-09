@@ -35,9 +35,15 @@ void draw() {
   
   // Get the hue of the pixel the mouse is pointing at
   float currentHue = hue(pixels[pixelPosition]);
+  float currentSat = saturation(pixels[pixelPosition]);
+  float currentBright = brightness(pixels[pixelPosition]);
   
   // Report the results
   fill(0);
   text("Hue of current pixel is: " + currentHue, width - 250, 25);
+  // add saturation and brightness
+  text("Saturation of current pixel is: " + currentSat, width - 250, 50);
+  text("Brightness of current pixel is: " + currentBright, width - 250, 75);
+  
   
 }
