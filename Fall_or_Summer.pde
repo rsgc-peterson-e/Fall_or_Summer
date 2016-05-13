@@ -8,8 +8,10 @@ void setup() {
   size(800, 500);
 
   // Load the picture into the scene object 
-  scene = loadImage("fall_forest.jpg");
+  //scene = loadImage("fall_forest.jpg");
   //scene = loadImage("summer_field.jpg");
+  scene = loadImage("summerTest.jpg");
+  //scene = loadImage("fallTest.jpg");
   
   // Change colour mode to HSB
   colorMode(HSB, 360, 100, 100, 100);
