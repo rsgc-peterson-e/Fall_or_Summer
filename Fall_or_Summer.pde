@@ -1,6 +1,6 @@
 // Create a global variable (actually an object) to hold the picture
 PImage scene;
-
+float totalHue1;
 // Runs once
 void setup() {
 
@@ -10,8 +10,9 @@ void setup() {
   // Load the picture into the scene object 
   //scene = loadImage("fall_forest.jpg");
   //scene = loadImage("summer_field.jpg");
-  scene = loadImage("summerTest.jpg");
+  //scene = loadImage("summerTest.jpg");
   //scene = loadImage("fallTest.jpg");
+  scene = loadImage("fallTest2.jpg");
   
   // Change colour mode to HSB
   colorMode(HSB, 360, 100, 100, 100);
