@@ -17,6 +17,7 @@ void setup() {
   // No border on shapes drawn
   noStroke();
   
+  
 }
 
 // Runs repeatedly
@@ -53,4 +54,42 @@ void draw() {
   text("Saturation of current pixel is: " + currentSat, width - 250, 50);
   text("Brightness of current pixel is: " + currentBright, width - 250, 75);
   text("Season: " + season, width - 250, 100);
+}
+
+void mouseClicked() {
+  int row = mouseY;
+  float totalBrightness = 0;
+  float totalHue = 0;
+  float totalSat = 0;
+  for (int i = 0; i < pixels.length; i++) {
+    //int position = row * width + i;
+    totalBrightness += brightness(pixels[i]);
+    totalHue += hue(pixels[i]);
+    totalSat += saturation(pixels[i]);
+  }
+  float averageBright = (float) totalBrightness / width;
+  float averageHue = (float) totalHue / width;
+  float averageSat = (float) totalSat / width;
+  //println("Total Brightness: " + totalBrightness);
+  //println("Average Brightness: " + averageBright);
+  //println("Total Hue: " + totalHue);
+  //println("Average Hue: " + averageHue);
+  //println("Total Sat: " + totalSat);
+  //println("Average Sat: " + averageSat);
+  float averageHSB = (float) (averageBright + averageHue + averageSat)/3;
+  println("Average HSB: " + averageHSB);
+  // make conditional to examine the given pixel row
+  //String condition = "Null";
+  //if (averageHSB > 60 && averageHSB < 70) {
+  //  condition = "Grass";
+  //} else if (averageHSB > 120 && averageHSB < 132) {
+  //  condition = "Blue Sky With Few Clouds";
+  //} else if (averageHSB > 70 && averageHSB < 120) {
+  //  condition = "Fluffy Clouds";
+  //}
+  if (averageHSB > 40000) {
+    println("Summer");
+  } else if (averageHSB > 25000) {
+    println("Fall");
+  }
 }
